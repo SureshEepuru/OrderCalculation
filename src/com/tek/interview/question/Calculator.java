@@ -7,7 +7,7 @@ import java.util.Map;
  * @author suresh
  *
  */
-class Calculator {
+public class Calculator {
 
 	public static double rounding(double value) {
 		return Math.round(value*100.0)/100.0; // rounded to get 2 digits
@@ -47,26 +47,26 @@ class Calculator {
 				}
 
 				// Calculate the total price
-				double totalprice = rounding(r.get(i).getItem().getPrice() + tax);//Math.round(tax*100.0)/100.0;// rounded
+				double totalprice = rounding(r.get(i).getItem().getPrice() + tax);
 
 				// Print out the item's total price
-				System.out.println(r.get(i).getQuantity()+" "+r.get(i).getItem().getDescription() + ": " + totalprice);//Math.round(totalprice*100.0)/100.0); 
+				System.out.println(r.get(i).getQuantity()+" "+r.get(i).getItem().getDescription() + ": " + totalprice); 
 
 				// Keep a running total
-				totalTax +=  tax; //Math.round(tax*100.0)/100.0;//tax calculation
+				totalTax +=  tax;
 				total += r.get(i).getItem().getPrice();
 			}
 
 			// Print out the total taxes
-			System.out.println("Sales Tax: " + rounding(totalTax));//Math.round(totalTax*100.0)/100.0); // rounded correct sales tax
+			System.out.println("Sales Tax: " + rounding(totalTax));
 
-			total = rounding(total);//total + totalTax;
+			total = rounding(total);
 
 			// Print out the total amount
-			System.out.println("Total: " + total);//rounding(total-totalTax));  //Math.round((total-totalTax) * 100.0) / 100.0);// rounded
-			grandtotal += total;//total-totalTax; // Fixed grand total calculation 
+			System.out.println("Total: " + total);
+			grandtotal += total;
 		}
 
-		System.out.println("Sum of orders: " + grandtotal );//Math.round(grandtotal * 100.0) / 100.0); // rounded
+		System.out.println("Sum of orders: " + grandtotal );
 	}
 }

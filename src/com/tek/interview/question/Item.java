@@ -4,7 +4,7 @@ package com.tek.interview.question;
  * represents an item, contains a price and a description.
  *
  */
-class Item {
+public class Item {
 
 	private String description;
 	private float price;

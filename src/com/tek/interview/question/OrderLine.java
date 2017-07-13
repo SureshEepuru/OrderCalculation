@@ -4,7 +4,7 @@ package com.tek.interview.question;
  * represents an order line which contains the @link Item and the quantity.
  *
  */
-class OrderLine {
+public class OrderLine {
 
 	private int quantity;
 	private Item item;

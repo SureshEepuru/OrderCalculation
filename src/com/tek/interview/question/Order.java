@@ -8,7 +8,7 @@ import java.util.List;
  * @author suresh
  *
  */
-class Order {
+public class Order {
 
 	private List<OrderLine> orderLines  = new ArrayList<OrderLine>(); 
 
