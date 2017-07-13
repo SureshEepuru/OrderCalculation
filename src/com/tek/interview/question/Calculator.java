@@ -10,7 +10,7 @@ import java.util.Map;
 class Calculator {
 
 	public static double rounding(double value) {
-		return ( (int) (value * 100)) / 100;
+		return Math.round(value*100.0)/100.0; // rounded to get 2 digits
 	}
 
 	/**
@@ -40,33 +40,33 @@ class Calculator {
 				double tax = 0;
 
 				if (r.get(i).getItem().getDescription().contains("imported")) {
-					tax = rounding(r.get(i).getItem().getPrice() * 0.15); // Extra 5% tax on
+					tax = rounding(r.get(i).getItem().getPrice() * 0.15); // Extra 15% tax on
 					// imported items
 				} else {
 					tax = rounding(r.get(i).getItem().getPrice() * 0.10);
 				}
 
 				// Calculate the total price
-				double totalprice = r.get(i).getItem().getPrice() + Math.floor(tax);
+				double totalprice = rounding(r.get(i).getItem().getPrice() + tax);//Math.round(tax*100.0)/100.0;// rounded
 
 				// Print out the item's total price
-				System.out.println(r.get(i).getItem().getDescription() + ": " + Math.floor(totalprice));
+				System.out.println(r.get(i).getQuantity()+" "+r.get(i).getItem().getDescription() + ": " + totalprice);//Math.round(totalprice*100.0)/100.0); 
 
 				// Keep a running total
-				totalTax += tax;
+				totalTax +=  tax; //Math.round(tax*100.0)/100.0;//tax calculation
 				total += r.get(i).getItem().getPrice();
 			}
 
 			// Print out the total taxes
-			System.out.println("Sales Tax: " + Math.floor(totalTax));
+			System.out.println("Sales Tax: " + rounding(totalTax));//Math.round(totalTax*100.0)/100.0); // rounded correct sales tax
 
-			total = total + totalTax;
+			total = rounding(total);//total + totalTax;
 
 			// Print out the total amount
-			System.out.println("Total: " + Math.floor(total * 100) / 100);
-			grandtotal += total;
+			System.out.println("Total: " + total);//rounding(total-totalTax));  //Math.round((total-totalTax) * 100.0) / 100.0);// rounded
+			grandtotal += total;//total-totalTax; // Fixed grand total calculation 
 		}
 
-		System.out.println("Sum of orders: " + Math.floor(grandtotal * 100) / 100);
+		System.out.println("Sum of orders: " + grandtotal );//Math.round(grandtotal * 100.0) / 100.0); // rounded
 	}
 }

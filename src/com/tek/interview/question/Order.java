@@ -17,7 +17,7 @@ class Order {
 			System.err.println("ERROR - Order is NULL");
 			throw new IllegalArgumentException("Order is NULL");
 		}
-		orderLines.add(o);
+		this.orderLines.add(o);
 	}
 
 	public int size() {
