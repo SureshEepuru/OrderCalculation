@@ -20,8 +20,8 @@ class OrderLine {
 			throw new Exception("Item is NULL");
 		}
 		assert quantity > 0;
-		item = item;
-		quantity = quantity;
+		this.item = item; // Added 'this' to set values to current obj 
+		this.quantity = quantity; // Added 'this' to set values to current obj
 	}
 
 	public Item getItem() {

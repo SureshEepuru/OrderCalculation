@@ -26,7 +26,7 @@ class Calculator {
 		// Iterate through the orders
 		for (Map.Entry<String, Order> entry : o.entrySet()) {
 			System.out.println("*******" + entry.getKey() + "*******");
-			grandtotal = 0;
+			//grandtotal = 0; // Not required as its initialized above
 
 			Order r = entry.getValue();
 
@@ -34,7 +34,7 @@ class Calculator {
 			double total = 0;
 
 			// Iterate through the items in the order
-			for (int i = 0; i <= r.size(); i++) {
+			for (int i = 0; i < r.size(); i++) { // Fixed IndexOutOfBoundsException
 
 				// Calculate the taxes
 				double tax = 0;
